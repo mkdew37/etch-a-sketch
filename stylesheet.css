@@ -1,0 +1,84 @@
+body, html  {
+   /* background-image: url(./images/pexels-instawalli-176851.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    background-color: #38add8;
+    font-family: 'JetBrains Mono NL', monospace;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ece93a;
+    border: 3px solid red;
+}
+
+h1  {
+    font-size: 50px;
+    margin-bottom: -15px;
+    border: 3px solid red;
+}
+
+p   {
+    font-size: 24px;
+    border: 3px solid red;
+}
+
+.main   {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnContainer    {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    width: 300px;
+    border: 3px solid red;
+}
+
+.btn     {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ece93a;
+}
+
+.btn:hover   {
+    transform: translateY(-0.25em);
+    box-shadow: 0 0.5em 0.5em -0.2em;
+}
+
+.sketchBoard    {
+    display: flex;
+    height: 640px;
+    width: 640px;
+}
+
+.row    {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border: 1px solid red;
+}
+
+.column     {
+    flex-basis: 100%;
+    border: 1px solid black;
+
+}
