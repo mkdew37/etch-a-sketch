@@ -80,9 +80,6 @@ sketchPad.addEventListener('mouseover', (event) => {
     }
 })
 
-
-
-
 sketchPad.addEventListener('mouseup', () =>   {
     drawingOn = false;
 });
@@ -110,9 +107,16 @@ btnNewGrid.addEventListener('click', () => {
 });
 
 btnRainbow.addEventListener('click', () =>  {
+    if (rainbowMode === true)   {
+        btnRainbow.style.backgroundColor = '';
+        rainbowMode = false;
+    } 
+    else {
+    btnRainbow.style.backgroundColor = 'violet';
     activateRainbowMode();
     let randomColor = getRandomColor();
     return randomColor;
+    }
 })
 
 
