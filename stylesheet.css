@@ -41,7 +41,6 @@ p   {
     align-items: center;
     height: 650px;
     width: 300px;
-    border: 3px solid black;
 }
 
 .btn     {
@@ -68,7 +67,6 @@ p   {
     display: flex;
     height: 650px;
     width: 650px;
-    border: 3px solid red;
 }
 
 .gridRow    {
@@ -78,7 +76,6 @@ p   {
     height: 100%;
     width: 100%;
     background-color: white;
-    border: 1px solid red;
 }
 
 .onHover    {
@@ -87,7 +84,6 @@ p   {
 
 .gridColumn     {
     flex-basis: 100%;
-    border: 1px solid black;
 
 }
 
