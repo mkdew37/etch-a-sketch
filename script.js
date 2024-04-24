@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Variable Declarations
 let drawingOn = false;
+let rainbowMode = false;
 // DOM elements
 const sketchPad = document.getElementById('pad');
 const btnNewGrid = document.getElementById('newPad');
 const btnClear = document.getElementById('clear'); 
+const btnRainbow = document.getElementById('rainbow');
 
 
 //Functions
@@ -24,6 +26,9 @@ function createPad () {
 }
 
 function createNewPad(size)   {
+    while (sketchPad.firstChild)    {
+        sketchPad.removeChild(sketchPad.firstChild);
+    }
     for (let i = 0; i < size; i++)    {
         const divRow = document.createElement('div');
         divRow.classList.add('gridRow');
@@ -37,10 +42,18 @@ function createNewPad(size)   {
     }
 }
 
+function getRandomColor()   {
+    const rainbowColor = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    return rainbowColor[Math.floor(Math.random() * rainbowColor.length)];
+}
+
 function activateDrawing () {
     drawingOn = true;
 }
 
+function activateRainbowMode ()     {
+    rainbowMode = true;
+}
 
 createPad();
 
@@ -60,14 +73,25 @@ sketchPad.addEventListener('mouseover', event => {
     }
 });
 
+//Rainbow Mode
+sketchPad.addEventListener('mouseover', (event) => {
+    if (drawingOn && rainbowMode && event.target.classList.contains('gridColumn'))   {
+        event.target.style.backgroundColor = getRandomColor();
+    }
+})
+
+
+
+
 sketchPad.addEventListener('mouseup', () =>   {
     drawingOn = false;
 });
 
-btnClear.addEventListener('click', () => {
+btnClear.addEventListener('click', event => {
     const gridColumns = document.querySelectorAll('.gridColumn');
     gridColumns.forEach(column => {
-        column.classList.remove('onHover');
+    column.classList.remove('onHover');
+    column.style.backgroundColor = '';
     });
 });
 
@@ -79,12 +103,17 @@ btnNewGrid.addEventListener('click', () => {
     } if (newGridSize) {
         const gridColumns = document.querySelectorAll('.gridColumn');
         gridColumns.forEach(column => {
-            column.classList.remove('onHover');
+        column.classList.remove('onHover');
         });
         createNewPad(newGridSize);
     }
 });
 
+btnRainbow.addEventListener('click', () =>  {
+    activateRainbowMode();
+    let randomColor = getRandomColor();
+    return randomColor;
+})
 
 
 
