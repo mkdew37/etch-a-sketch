@@ -8,6 +8,7 @@ const sketchPad = document.getElementById('pad');
 const btnNewGrid = document.getElementById('newPad');
 const btnClear = document.getElementById('clear'); 
 const btnRainbow = document.getElementById('rainbow');
+const displayGridInfo = document.getElementById('gridInfo');
 
 
 //Functions
@@ -40,6 +41,7 @@ function createNewPad(size)   {
             divRow.appendChild(divColumn);
         }
     }
+    displayGridInfo.innerText = `Number of squares are now: ${size} x ${size}`;
 }
 
 function getRandomColor()   {
