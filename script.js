@@ -4,14 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
 let drawingOn = false;
 let rainbowMode = false;
 let chosenColorMode = false;
+let eraserMode = false;
 
 // DOM elements
 const sketchPad = document.getElementById('pad');
-const btnNewGrid = document.getElementById('newPad');
+const btnNewGrid = document.getElementById('newGrid');
 const btnClear = document.getElementById('clear');
 const btnColor = document.getElementById('color');
 const colorPickerPopup = document.getElementById('colorPickerPopup');
 const btnRainbow = document.getElementById('rainbow');
+const btnEraser = document.getElementById('eraser');
 const displayGridInfo = document.getElementById('gridInfo');
 
 //Functions
@@ -64,6 +66,9 @@ function activateChosenColor ()     {
     chosenColorMode = true;
 }
 
+function activateEraserMode ()  {
+    eraserMode = true;
+}
 createPad();
 
 //Click Events
@@ -144,5 +149,22 @@ btnRainbow.addEventListener('click', () =>  {
     return randomColor;
     }
 })
+
+btnEraser.addEventListener('click', () =>    {
+    if (eraserMode === true)    {
+        btnEraser.style.backgroundColor = '';
+        eraserMode = false;
+    }
+    else {
+    btnEraser.style.backgroundColor = 'violet';
+    activateEraserMode();
+    }
+})
+
+sketchPad.addEventListener('mouseover', event =>    {
+    if (drawingOn && eraserMode && event.target.classList.contains('gridColumn'))    {
+        event.target.style.backgroundColor = 'white';
+    }
+});
 
 })

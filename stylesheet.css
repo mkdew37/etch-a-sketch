@@ -80,7 +80,6 @@ p   {
     display: flex;
     height: 650px;
     width: 650px;
-    border: 5px solid red;
 }
 
 .gridRow    {
@@ -108,7 +107,6 @@ p   {
     margin-left: 720px;
     height: auto;
     width: 525px;
-    border: 3px solid red;
 }
 
 .footer     {
