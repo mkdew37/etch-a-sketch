@@ -19,14 +19,19 @@
         <div class='btnContainer'>
             <button class='btn' id='newPad'>New grid</button>
             <button class='btn' id='clear'>Clear</button>
-            <button class='btn'>Color</button>
+            <button class='btn' id="color">Color</button>
+
+            <div class="color-picker-popup" id="colorPickerPopup">
+                <input type="color" class="color-picker" id="colorPicker">
+            </div>
+
             <button class='btn' id="rainbow">Rainbow</button>
             <button class='btn'>Eraser</button>
         </div>
         <div class='sketchBoard' id="pad"></div>
     </div>
 
-    <p class="gridSize" id="gridInfo">Number of squares are now: 16x16</p>
+    <p class="gridSize" id="gridInfo">Grid size: 16x16</p>
 
     <footer class='footer'>
         <div class='footerContent'>Copyright &#9400; 2024 Albin Viktorsson</div>

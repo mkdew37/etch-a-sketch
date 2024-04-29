@@ -3,13 +3,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // Variable Declarations
 let drawingOn = false;
 let rainbowMode = false;
+let chosenColorMode = false;
+
 // DOM elements
 const sketchPad = document.getElementById('pad');
 const btnNewGrid = document.getElementById('newPad');
-const btnClear = document.getElementById('clear'); 
+const btnClear = document.getElementById('clear');
+const btnColor = document.getElementById('color');
+const colorPickerPopup = document.getElementById('colorPickerPopup');
 const btnRainbow = document.getElementById('rainbow');
 const displayGridInfo = document.getElementById('gridInfo');
-
 
 //Functions
 function createPad () {
@@ -41,7 +44,7 @@ function createNewPad(size)   {
             divRow.appendChild(divColumn);
         }
     }
-    displayGridInfo.innerText = `Number of squares are now: ${size} x ${size}`;
+    displayGridInfo.innerText = `Grid size: ${size} x ${size}`;
 }
 
 function getRandomColor()   {
@@ -57,10 +60,11 @@ function activateRainbowMode ()     {
     rainbowMode = true;
 }
 
+function activateChosenColor ()     {
+    chosenColorMode = true;
+}
+
 createPad();
-
-
-
 
 //Click Events
 sketchPad.addEventListener('mousedown', event => {
@@ -75,23 +79,21 @@ sketchPad.addEventListener('mouseover', event => {
     }
 });
 
-//Rainbow Mode
-sketchPad.addEventListener('mouseover', (event) => {
+// Rainbow Mode
+sketchPad.addEventListener('mouseover', event => {
     if (drawingOn && rainbowMode && event.target.classList.contains('gridColumn'))   {
         event.target.style.backgroundColor = getRandomColor();
     }
 })
+// Input color from user
+sketchPad.addEventListener('mouseover', event => {
+    if (drawingOn && chosenColorMode && event.target.classList.contains('gridColumn'))  {
+        event.target.style.backgroundColor = newColor;
+    }
+});
 
 sketchPad.addEventListener('mouseup', () =>   {
     drawingOn = false;
-});
-
-btnClear.addEventListener('click', event => {
-    const gridColumns = document.querySelectorAll('.gridColumn');
-    gridColumns.forEach(column => {
-    column.classList.remove('onHover');
-    column.style.backgroundColor = '';
-    });
 });
 
 btnNewGrid.addEventListener('click', () => {
@@ -108,21 +110,39 @@ btnNewGrid.addEventListener('click', () => {
     }
 });
 
+btnClear.addEventListener('click', () => {
+    const gridColumns = document.querySelectorAll('.gridColumn');
+    gridColumns.forEach(column => {
+    column.classList.remove('onHover');
+    column.style.backgroundColor = '';
+    });
+});
+
+btnColor.addEventListener('click', () =>    {
+    colorPickerPopup.style.display = 'block';
+    colorPicker.click();
+});
+
+colorPicker.addEventListener('change', event => {
+    newColor = event.target.value;
+    colorPickerPopup.style.display = 'none';
+    activateChosenColor();
+    btnColor.style.backgroundColor= newColor;
+});
+
 btnRainbow.addEventListener('click', () =>  {
     if (rainbowMode === true)   {
         btnRainbow.style.backgroundColor = '';
         rainbowMode = false;
     } 
     else {
+    btnColor.style.backgroundColor = '';
     btnRainbow.style.backgroundColor = 'violet';
+    chosenColorMode = false;
     activateRainbowMode();
     let randomColor = getRandomColor();
     return randomColor;
     }
 })
-
-
-
-
 
 })

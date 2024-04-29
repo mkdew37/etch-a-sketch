@@ -63,10 +63,24 @@ p   {
     box-shadow: 0 0.5em 0.5em -0.2em;
 }
 
+.color-picker-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgb(124, 16, 16);
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: none;
+  }  
+
 .sketchBoard    {
     display: flex;
     height: 650px;
     width: 650px;
+    border: 5px solid red;
 }
 
 .gridRow    {
@@ -78,24 +92,29 @@ p   {
     background-color: white;
 }
 
+.gridColumn     {
+    flex-basis: 100%;
+}
+
 .onHover    {
     background-color: black;
 }
 
-.gridColumn     {
-    flex-basis: 100%;
-
-}
-
 .gridSize   {
-    border: 3px solid red;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
+    margin-left: 720px;
+    height: auto;
+    width: 525px;
+    border: 3px solid red;
 }
 
 .footer     {
     color: #ece93a;
     font-size: 24px;
+    font-weight: bold;
     position: fixed;
     bottom: 0;
     width: 100%;
