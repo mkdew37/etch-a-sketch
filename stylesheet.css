@@ -1,9 +1,7 @@
 body, html  {
-   /* background-image: url(./images/pexels-instawalli-176851.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;*/
 	background-color: #38add8;
 	font-family: 'JetBrains Mono NL', monospace;
+	font-size: 100%;
 	height: 100vh;
 	width: 100vw;
 	overflow: hidden;
@@ -16,27 +14,27 @@ body, html  {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 15vh;
+	height: 10vh;
 	width: 100vw;
 	color: #ece93a;
-	border: 5px solid red;
 }
 
-h1  {
-
+h1	{
+	font-size: 2.5rem;
 }
 
 p   {
-   
+	font-size: 1.2rem;
 	color: black;
+	margin-top: -15px;
 }
 
 .main   {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
-	border: 5px solid red;
+	height: 85vh;
+	width: 100vw;
 }
 
 .btnContainer    {
@@ -44,20 +42,19 @@ p   {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 400px;
-	width: 300px;
-	border: 5px solid red;
+	height: 25rem;
+	width: 20rem;
 }
 
 .btn     {
-	font-size: 20px;
+	font-size: 1.25rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 20px;
+	height: 1.25rem;
 	width: 50%;
-	margin: 20px;
-	padding: 20px;
+	margin: 1.25rem;
+	padding: 1.25rem;
 	border-radius: 10px;
 	border: none;
 	background-color: #ece93a;
@@ -85,11 +82,10 @@ p   {
 .sketchContainer    {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
-	height: auto;
-	width: auto;
-	border: 5px solid blue;
+	height: 700px;
+	width: 650px;
 }
 
 .sketchBoard    {
@@ -111,13 +107,26 @@ p   {
 	flex-basis: 100%;
 }
 
+.gridSize	{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 25px;
+	width: 50%;
+	margin: 10px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	background-color: #ece93a;
+	border-radius: 10px;
+}
+
 .onHover    {
 	background-color: black;
 }
 
 .footer     {
 	color: #ece93a;
-	font-size: 24px;
+	font-size: 1.5rem;
 	font-weight: bold;
 	position: fixed;
 	bottom: 0;
