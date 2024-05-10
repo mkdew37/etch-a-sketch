@@ -142,24 +142,3 @@ p   {
 	justify-content: center;
 	align-items: center;
 }
-
-/*@media screen and (max-width: 1920px) {
-
-	.main   {
-		height: 700px;
-		width: 100%;
-	}
-
-	.btnContainer   {   
-		height: 700px;
-		width: 20%;
-
-	  }
-
-	.sketchBoard {
-		height: 600px;
-		width: 600px; 
-	  }
-
-
-}
